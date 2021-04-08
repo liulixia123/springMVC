@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"   
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+       <context:component-scan base-package="controller"></context:component-scan>
+    <!--配置处理器映射器-->
+	<!-- <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"></bean> -->
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+            <prop key="/hello.do">hello</prop>
+        	</props>
+		</property>
+	</bean> -->
+	<!-- <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"></bean> -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean>
+	
+	<!--配置适配器-->
+	<!-- <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"></bean> -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"></bean>
+	
+	<!--配置处理器-->
+	<!-- <bean name="/hello.do" class="controller.HelloController"></bean> -->
+	<!-- <bean id="hello" class="controller.HelloController"></bean> -->
+	
+	<!--配试图解析器-->
+	<bean  class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	    <!--找到WEB-INF下的JSP/hello.jsp-->
+	   <!--配置前缀-->
+	   <property name="prefix" value="/WEB-INF/jsp/"></property>
+	   <!--配置后缀-->
+	    <property name="suffix" value=".jsp"></property>
+	</bean> 
+</beans>
