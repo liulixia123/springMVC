@@ -26,11 +26,11 @@ function add(){
 	$.ajax({
         url: "ajaxData",
         data: str,
-        contentType: "application/json;charset=UTF-8", //发送数据的格式
+        contentType: "application/json", //发送数据的格式
         type: "post",
-        dataType: "json", //这是返回来是json，也就是回调json
+        //dataType: "json", //这是返回来是json，也就是回调json
         success: function(data){
-            alert(data);
+            console.log(data.name);
         }
     });
 }

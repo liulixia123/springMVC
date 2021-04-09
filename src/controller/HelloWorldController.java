@@ -19,7 +19,7 @@ import pojo.User;
 @Controller
 public class HelloWorldController {
 	
-	@RequestMapping(value="show")
+	@RequestMapping(value= {"/","/show"})
 	public String show(Model model) {
 		
 		List<User> users = new ArrayList<>();
